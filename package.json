@@ -1,0 +1,24 @@
+{
+  "name": "copytrading",
+  "version": "1.0.0",
+  "description": "A copytrading application for quicktrades",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikhilsn/copytrading_backend.git"
+  },
+  "author": "Nikhil Soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikhilsn/copytrading_backend/issues"
+  },
+  "homepage": "https://github.com/nikhilsn/copytrading_backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12",
+    "pm2": "^5.1.1"
+  }
+}
