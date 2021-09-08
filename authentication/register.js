@@ -8,9 +8,9 @@ const pool = require('../databaseconf/psqlconf');
 
 router.post('/register', (req, res) => {
     try {
-        var { fname, lname, uid, mobile } = req.body;
+        var { fname, lname, uid, mobile, usertype } = req.body;
 
-        getQuery(fname, lname, mobile, uid, (err, query) => {
+        getQuery(fname, lname, mobile, uid, usertype, (err, query) => {
             if (err) {
                 res.send(getJSONResponse(false, errorcode.INVALID_REQUEST, text.TEXT_INVALIDREQUEST, {}))
                 return;
@@ -37,22 +37,28 @@ router.post('/register', (req, res) => {
     }
 });
 
-function getQuery(fname, lname, mobile, uid, cb) {
+function getQuery(fname, lname, mobile, uid, usertype, cb) {
     var query = ``;
     if (uid) {
-        if (fname && uid) {
+        if (fname) {
             query = query + `INSERT INTO users (uid, key, value) VALUES ('${uid}', '${dbconstants.DB_FNAME}', '${fname}');`;
         }
         else {
             return cb(text.TEXT_INVALIDREQUEST)
         }
-        if (lname && uid) {
+        if (lname) {
             query = query + `INSERT INTO users (uid, key, value) VALUES ('${uid}', '${dbconstants.DB_LNAME}', '${lname}');`;
         } else {
             return cb(text.TEXT_INVALIDREQUEST)
         }
-        if (mobile && uid) {
+        if (mobile) {
             query = query + `INSERT INTO users (uid, key, value) VALUES ('${uid}', '${dbconstants.DB_MOBILE}', '${mobile}');`;
+        }
+        else {
+            return cb(text.TEXT_INVALIDREQUEST)
+        }
+        if (usertype) {
+            query = query + `INSERT INTO users (uid, key, value) VALUES ('${uid}', '${dbconstants.DB_USERTYPE}', '${usertype}');`;
         }
         else {
             return cb(text.TEXT_INVALIDREQUEST)

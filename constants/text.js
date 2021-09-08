@@ -7,5 +7,8 @@ module.exports=  Object.freeze({
     TEXT_INVALIDREQUEST: 'Invalid request',
     TEXT_SUCCESS: 'success',
     TEXT_USERNOTFOUND:'User not found',
+    TEXT_TRADER: 'trader',
+    TEXT_COPIER: 'copier',
+    TEXT_NOTRADERFOUND: 'No trader found'
 });
 
