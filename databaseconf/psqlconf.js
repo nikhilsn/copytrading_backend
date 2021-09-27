@@ -4,7 +4,7 @@ var pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'copytrading',
-    password: 'admin',
+    password: 'postgres',
     port: 5432,
 });
 

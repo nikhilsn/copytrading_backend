@@ -13,7 +13,6 @@ router.post('/login', (req, res) => {
         var { mobile } = req.body;
         getQuery(mobile, (err, query) => {
             if (err) {
-                console.log(getJSONResponse(false, errorcodes.INVALID_REQUEST, text.TEXT_INVALIDREQUEST));
                 res.send(getJSONResponse(false, errorcodes.INVALID_REQUEST, text.TEXT_INVALIDREQUEST));
                 return;
             } else {

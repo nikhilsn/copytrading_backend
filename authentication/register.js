@@ -25,6 +25,7 @@ router.post('/register', (req, res) => {
                         pool.query(query).then((result) => {
                             res.send(getJSONResponse(false, errorcode.INVALID_REQUEST, text.TEXT_INVALIDREQUEST));
                         }).catch((err)=>{
+                            console.log(err);
                             res.send(getJSONResponse(false, errorcode.INVALID_REQUEST, text.TEXT_INVALIDREQUEST));
                         });
                     });
